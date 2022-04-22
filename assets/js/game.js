@@ -7,7 +7,40 @@ const submitButton = document.getElementById('submit');
 
 //Functions
 
-function makeQuiz(){}
+function makeQuiz(){
+  // variable to store HTML output
+  const output = [];
+
+// each question
+myQuestions.forEach(
+  (currentQuestion, questionNumber) => {
+
+    // variable to store list of answers
+    const answers = [];
+
+    // for each available answer
+    for(letter in currentQuestion.answers){
+
+      // HTML radio button
+      answers.push(
+          `<label>
+            <input type="radio" name="question${questionNumber}" value="${letter}">
+            ${letter} :
+            ${currentQuestion.answers[letter]}
+          </label>`
+        );
+    }
+
+    // adding this question and the answers to output
+    output.push(
+      `<div class="question"> ${currentQuestion.question} </div>
+        <div class="answers"> ${answers.join("")} </div>`
+    );
+  }
+);
+// combine output list into string of HTML and put on the page
+quizContainer.innerHTML = output.join(' ');
+}
 
 function showResults(){}
 
