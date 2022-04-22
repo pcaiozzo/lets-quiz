@@ -1,0 +1,23 @@
+:root {
+    background-color: darkgrey;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 100px;
+    color: purple;
+    margin-bottom: 5rem;
+
+}
+
+h2 {
+    font-size: 50px;
+    margin-bottom: 4rem;
+}
