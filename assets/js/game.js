@@ -24,8 +24,8 @@ const myQuestions = [
 {
   question: "question here",
   answers: {
-    a: "one"
-    b: "two"
+    a: "one",
+    b: "two",
     c: "three"
   },
   correctAnswer: "c"
@@ -34,8 +34,8 @@ const myQuestions = [
 {
   question: "question here",
   answers: {
-    a: "one"
-    b: "two"
+    a: "one",
+    b: "two",
     c: "three"
   },
   correctAnswer: "c"
@@ -44,8 +44,8 @@ const myQuestions = [
 {
   question: "question here",
   answers: {
-    a: "one"
-    b: "two"
+    a: "one",
+    b: "two",
     c: "three"
   },
   correctAnswer: "c"
@@ -54,8 +54,8 @@ const myQuestions = [
 {
   question: "question here",
   answers: {
-    a: "one"
-    b: "two"
+    a: "one",
+    b: "two",
     c: "three"
   },
   correctAnswer: "c"
@@ -64,8 +64,8 @@ const myQuestions = [
 {
   question: "question here",
   answers: {
-    a: "one"
-    b: "two"
+    a: "one",
+    b: "two",
     c: "three"
   },
   correctAnswer: "c"
