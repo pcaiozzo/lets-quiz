@@ -4,12 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Example</title>
+    <title>Coding Quiz</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
+    <header>
+      <a href="./highscores" id="high-score">View High Scores</a><span id="timer">Timer:75</span>
+    </header>
     <div>
-      <h1 id="question">This is a question</h1>
+      <h1 id="question">Coding Quiz Challenge</h1>
+      <p id="introduction">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds.</p>
       <button class="answerButton" id="startQuizButton">Start Quiz</button>
       <div id="answersContainer">
         <button class="answerButton" id="answerButton1"></button>
@@ -17,6 +21,7 @@
         <button class="answerButton" id="answerButton3"></button>
         <button class="answerButton" id="answerButton4"></button>
       </div>
+      <br>
       <h1 id="solutionAnswer"></h1>
     </div>
     <script src="./assets/js/game.js"></script>
