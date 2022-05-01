@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>My Quiz</title>
-</head>
-
-<body>
-
-    <div class="container">
-      <div id="home" class="flex-column flex=center">
-  <h1>My Quiz</h1>
-  <a href="/game.html" class="btn">Play</a>
-    <a href="/highscore.html" id="highscore-btn" class="btn">High Scores</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Example</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <div>
+      <h1 id="question">This is a question</h1>
+      <button class="answerButton" id="startQuizButton">Start Quiz</button>
+      <div id="answersContainer">
+        <button class="answerButton" id="answerButton1"></button>
+        <button class="answerButton" id="answerButton2"></button>
+        <button class="answerButton" id="answerButton3"></button>
+        <button class="answerButton" id="answerButton4"></button>
       </div>
+      <h1 id="solutionAnswer"></h1>
     </div>
-
-
-
-
-</body>
-
-<script src="./assets/js/game.js"></script>
+    <script src="./assets/js/game.js"></script>
+  </body>
 </html>
