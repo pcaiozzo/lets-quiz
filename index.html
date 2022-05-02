@@ -8,12 +8,16 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
-    <header>
-      <a href="./highscores" id="high-score">View High Scores</a><span id="timer">Timer:75</span>
+    <header id="header">
+      <a onClick="showHighScores()" id="high-score">View High Scores</a><span id="timer">75s</span>
     </header>
-    <div>
+    <div id="questionsContainer">
       <h1 id="question">Coding Quiz Challenge</h1>
-      <p id="introduction">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds.</p>
+      <p id="introduction">Try to answer the following code-related questions within the time limit. <br>
+        Keep in mind that incorrect answers will penalize your score/time by ten seconds.</p>
+      <p id="enterIntialsPrompt">Enter initials: </p>
+      <input type="text" id="inputBox" />
+      <button class="answerButton" id="submit">Submit</button>
       <button class="answerButton" id="startQuizButton">Start Quiz</button>
       <div id="answersContainer">
         <button class="answerButton" id="answerButton1"></button>
@@ -23,6 +27,12 @@
       </div>
       <br>
       <h1 id="solutionAnswer"></h1>
+    </div>
+    <div id="highScoresContainer">
+      <h1>High Scores</h1>
+      <div id="scoresContainer">
+      </div>
+      <button onClick="window.location.reload()" class="answerButton">Go Back</button>
     </div>
     <script src="./assets/js/game.js"></script>
   </body>

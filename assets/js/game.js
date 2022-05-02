@@ -8,24 +8,50 @@ const answerButton4 = document.getElementById("answerButton4");
 const solutionAnswer = document.getElementById("solutionAnswer");
 const timerEl = document.querySelector("#timer");
 const introductionSection = document.getElementById("introduction")
+const enterIntialsPrompt = document.getElementById("enterIntialsPrompt");
+const submitButton = document.getElementById("submit");
+const inputBox = document.getElementById("inputBox");
+const scoresContainer = document.getElementById("scoresContainer");
+const questionsContainer = document.getElementById("questionsContainer");
+const highScoresContainer = document.getElementById("highScoresContainer");
+const header = document.getElementById("header");
 
 const myQuestions = {
   1: {
-    question: "How old are you?",
-    choices: ["12", "14", "15", "27"],
+    question: "Commonly used data types DO NOT include?",
+    choices: ["strings", "booleans", "alerts", "numbers"],
     answer: 3,
   },
   2: {
-    question: "What is your name?",
-    choices: ["bob", "frank", "gary", "sam"],
-    answer: 2,
+    question:
+      "The condition in an if / else statement is enclosed within _____.",
+    choices: ["quotes", "curly brackets", "parenthesis", "square brackets"],
+    answer: 3,
   },
   3: {
-    question: "Where do you live?",
-    choices: ["US", "Brazil", "Africa", "China"],
-    answer: 0,
+    question: "Arrays in JavaScript can be used to store ____.",
+    choices: [
+      "Unumbers and strings",
+      "other arrays",
+      "booleans",
+      "square brackets",
+    ],
+    answer: 4,
+  },
+  4: {
+    question:
+      "String values must be enclosed within ____ when being assigned to variables.",
+    choices: ["commas", "curly brackets", "quotes", "parenthesis"],
+    answer: 3,
+  },
+  5: {
+    question:
+      "A very useful tool during development and debugging of printing content to the debugger is: ",
+    choices: ["JavaScript", "terminal / bash", "for loops", "console.log"],
+    answer: 4,
   },
 };
+
 let currentQuestion = 1;
 let score = 0;
 let scores = [];
@@ -33,17 +59,18 @@ let timeLeft = 75;
 
 function answerQuestion(choice) {
   if (choice === myQuestions[currentQuestion].answer) {
-    solutionAnswer.innerHTML = "CORRECT";
+    solutionAnswer.innerHTML = "Correct";
     score = score + 1;
   } else {
-    solutionAnswer.innerHTML = "WRONG";
+    timeLeft -= 10;
+    solutionAnswer.innerHTML = "Wrong";
   }
 
   currentQuestion++;
 
-  if (currentQuestion > 3) {
-    console.log("DONE");
+  if (currentQuestion > Object.keys(myQuestions).length) {
     scores.push(score);
+    timeLeft = 0;
   } else {
     populateQuestion();
   }
@@ -55,7 +82,6 @@ function populateQuestion() {
   answerButton2.innerHTML = myQuestions[currentQuestion].choices[1];
   answerButton3.innerHTML = myQuestions[currentQuestion].choices[2];
   answerButton4.innerHTML = myQuestions[currentQuestion].choices[3];
-  timerClock ();
 }
 
 function showAnswer() {
@@ -65,23 +91,56 @@ function showAnswer() {
 function hideStartQuizButton() {
   startQuizButton.style.display = "none";
   introductionSection.style.display = "none";
-
+  timerClock();
 }
 
-function timerClock () {
-  var timer = setInterval(function (){
-    if(timeLeft <=0){
+function timerClock() {
+  const timer = setInterval(() => {
+    if (timeLeft <= 0){
       clearInterval(timer);
       timerEl.innerHTML = "0";
       endGame(timeLeft);
-    } else if (timeLeft === "done"){
-      clearInterval(timer);
-      timerEl.innerHTML = "0";
     } else {
       timerEl.innerHTML = timeLeft + "s";
     }
     timeLeft -= 1;
   }, 1000);
+}
+
+function endGame() {
+questionTitle.innerHTML = "All Done!";
+introductionSection.innerHTML = "Your final score is: " + score + ".";
+enterIntialsPrompt.style.display = "inline";
+inputBox.style.display = "inline";
+submitButton.style.display = "inline";
+
+introductionSection.style.display = "block";
+answersContainer.style.display = "none";
+}
+
+function submitInitials() {
+  const initials = inputBox.value;
+  const data = {
+    initials: initials,
+    score: score
+  };
+  let currentHighScores = window.localStorage.getItem("scores");
+  currentHighScores = currentHighScores === null ? [] : JSON.parse(currentHighScores);
+  currentHighScores.push(data);
+  window.localStorage.setItem("scores", JSON.stringify(currentHighScores));
+showHighScores();
+}
+
+function showHighScores() {
+  header.style.visibility = "hidden";
+questionsContainer.style.display = "none";
+highScoresContainer.style.display = "block";
+let currentHighScores = window.localStorage.getItem("scores");
+currentHighScores = currentHighScores === null ? [] : JSON.parse(currentHighScores);
+currentHighScores.sort((a, b) => { return b.score - a.score });
+currentHighScores.forEach((element, index) => {
+  scoresContainer.innerHTML += ' <div class="score">' + (index + 1) + '. ' + element.initials + ' - ' + element.score + '</div>';
+});
 }
 
 startQuizButton.addEventListener("click", showAnswer);
@@ -99,3 +158,4 @@ answerButton3.addEventListener("click", () => {
 answerButton4.addEventListener("click", () => {
   answerQuestion(3);
 });
+submitButton.addEventListener("click", submitInitials);
