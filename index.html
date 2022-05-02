@@ -8,9 +8,13 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
+
+    <!--Top section that displays highscore button and timer-->
     <header id="header">
       <a onClick="showHighScores()" id="high-score">View High Scores</a><span id="timer">75s</span>
     </header>
+
+    <!--Section for the questions and quiz-->
     <div id="questionsContainer">
       <h1 id="question">Coding Quiz Challenge</h1>
       <p id="introduction">Try to answer the following code-related questions within the time limit. <br>
@@ -26,14 +30,20 @@
         <button class="answerButton" id="answerButton4"></button>
       </div>
       <br>
+
+      <!--Spot to display wrong or correct text-->
       <h1 id="solutionAnswer"></h1>
     </div>
+
+    <!--Section for highscores amd go back button-->
     <div id="highScoresContainer">
       <h1>High Scores</h1>
       <div id="scoresContainer">
       </div>
       <button onClick="window.location.reload()" class="answerButton">Go Back</button>
     </div>
+    
+    <!--link to JavaScript-->
     <script src="./assets/js/game.js"></script>
   </body>
 </html>

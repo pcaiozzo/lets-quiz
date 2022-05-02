@@ -4,6 +4,7 @@
   padding: 0;
 }
 
+/*Header section*/
 header {
   justify-content: space-between;
   margin: 10px;
@@ -14,12 +15,14 @@ header {
 header span {
   padding: 10px;
 }
+/*Header section ends*/
 
 p {
   font-size: x-large;
   display: block;
 }
 
+/*Answer section*/
 .answerButton {
     width: 200px;
     height: 50px;
@@ -37,7 +40,9 @@ p {
 #answersContainer {
     display: none;
 }
+/*Answer section ends*/
 
+/*High score section*/
 #high-score {
   text-decoration: none;
   color: #e068eb;
@@ -49,6 +54,7 @@ p {
 #high-score:hover {
   cursor: pointer;
 }
+/*High score section ends*/
 
 #timer {
   float: right;
@@ -63,6 +69,7 @@ p {
 margin-bottom: 30px;
 }
 
+/*to hide certain varibles*/
 #inputBox, #enterIntialsPrompt, #submit, #highScoresContainer {
   display: none;
 }

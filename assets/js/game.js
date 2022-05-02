@@ -1,3 +1,4 @@
+//Varibles
 const startQuizButton = document.getElementById("startQuizButton");
 const answersContainer = document.getElementById("answersContainer");
 const questionTitle = document.getElementById("question");
@@ -16,6 +17,8 @@ const questionsContainer = document.getElementById("questionsContainer");
 const highScoresContainer = document.getElementById("highScoresContainer");
 const header = document.getElementById("header");
 
+
+//Section for the questions
 const myQuestions = {
   1: {
     question: "Commonly used data types DO NOT include?",
@@ -52,11 +55,13 @@ const myQuestions = {
   },
 };
 
+//the let section
 let currentQuestion = 1;
 let score = 0;
 let scores = [];
 let timeLeft = 75;
 
+//Functions
 function answerQuestion(choice) {
   if (choice === myQuestions[currentQuestion].answer) {
     solutionAnswer.innerHTML = "Correct";
@@ -143,6 +148,7 @@ currentHighScores.forEach((element, index) => {
 });
 }
 
+//addEventListener section
 startQuizButton.addEventListener("click", showAnswer);
 startQuizButton.addEventListener("click", hideStartQuizButton);
 startQuizButton.addEventListener("click", populateQuestion);
