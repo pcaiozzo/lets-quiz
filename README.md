@@ -6,8 +6,8 @@ Created a coding quiz for people to take to test their skills. The quiz tells yo
 
 ## Deployment link
 
-https://pcaiozzo.github.io//
+https://pcaiozzo.github.io/lets-quiz/
 
 ## Screenshot
 
-![Screenshot](./)
+![Screenshot](./assets/images/Capture.PNG)
